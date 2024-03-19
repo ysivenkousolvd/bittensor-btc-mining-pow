@@ -1,7 +1,6 @@
 # The MIT License (MIT)
 # Copyright © 2023 Yuma Rao
-# TODO(developer): Set your name
-# Copyright © 2023 <your name>
+# Copyright © 2024 Yahor Sivenkou
 
 # Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 # documentation files (the “Software”), to deal in the Software without restriction, including without limitation
@@ -19,6 +18,7 @@
 
 
 import time
+import torch
 
 # Bittensor
 import bittensor as bt
@@ -44,9 +44,12 @@ class Validator(BaseValidatorNeuron):
         super(Validator, self).__init__(config=config)
 
         bt.logging.info("load_state()")
+        self.difficulty = 3
+        self.btc_block = 1
+        self.previous_hash = "0"
+        self.nonce = 0
+        self.btc_block = 1
         self.load_state()
-
-        # TODO(developer): Anything specific to your use case you can do here
 
     async def forward(self):
         """
@@ -57,7 +60,6 @@ class Validator(BaseValidatorNeuron):
         - Rewarding the miners
         - Updating the scores
         """
-        # TODO(developer): Rewrite this function based on your protocol definition.
         return await forward(self)
 
 
